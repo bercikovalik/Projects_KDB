@@ -81,9 +81,9 @@ def quick_sort(arr, low=0, high=None):
 
     if low < high:
         pivot_index = partition(arr, low, high)
-        yield from quick_sort(arr, low, pivot_index - 1)  # Sort left half
-        yield from quick_sort(arr, pivot_index + 1, high)  # Sort right half
-        yield arr  # Yield after partition to reflect the current state
+        yield from quick_sort(arr, low, pivot_index - 1)  
+        yield from quick_sort(arr, pivot_index + 1, high)  
+        yield arr  
 
 def partition(arr, low, high):
     pivot = arr[high]
@@ -93,10 +93,10 @@ def partition(arr, low, high):
         if arr[j] > pivot:
             i += 1
             arr[i], arr[j] = arr[j], arr[i]
-        yield arr  # Yield after each swap
+        yield arr  
 
     arr[i + 1], arr[high] = arr[high], arr[i + 1]
-    yield arr  # Yield after the pivot is placed correctly
+    yield arr  
     return i + 1
 
 
